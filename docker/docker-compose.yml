@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../frontend:/usr/src/app/frontend
+      - db-data:/usr/src/app/data
+    env_file:
+      - ../backend/.env
+
+volumes:
+  db-data:
